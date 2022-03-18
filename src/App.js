@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const clientID = process.env.REACT_APP_CLIENT_ID;
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>{clientID}</p>
       </header>
     </div>
   );
