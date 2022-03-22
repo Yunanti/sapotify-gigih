@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  padding: 6px 15px;
+  margin-top: 10px;
+  background-color: rgba(1, 247, 1, 0.719);
+  border-radius: 7px;
+  border: 0px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -27,6 +40,33 @@
 .App-link {
   color: #61dafb;
 }
+
+body {
+  background-color: black;
+}
+
+.album-title {
+  font-size: 26px;
+}
+
+.App-main {
+  border-radius: 15px;
+  background-color: rgb(27, 23, 23);
+  margin: 0 auto;
+  width: 300px;
+  height: 450px;
+  padding: 0px;
+}
+
+.img-album {
+  
+  border-radius: 15px 15px 0 0;
+}
+
+.text-white {
+  color: white;
+} 
+
 
 @keyframes App-logo-spin {
   from {

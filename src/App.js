@@ -1,27 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
+import data from './data';
 import './App.css';
 
 function App() {
-  const clientID = process.env.REACT_APP_CLIENT_ID;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>{clientID}</p>
-      </header>
+      <div className='App-main'>
+        <div className='album-img'>
+          <img 
+            className='img-album'
+            src={data.album.images[1].url}
+            alt="queen"
+          />
+        </div>
+        <div className='album-detail'>
+          <h1 className='album-title text-white'>{data.name}</h1>
+          <div className='artist-info'>
+            <p className='text-white'>Artist : <span className='artist-name'>{data.album.artists[0].name}</span></p>
+            <p className='text-white'>Release Date : <span className='release-date'>{data.album.release_date}</span></p>
+            <p className='text-white'>Total Track : <span className='total-tracks'>{data.album.total_tracks}</span></p>
+          </div>
+          <button className='btn text-white'>Select</button>
+
+        </div>
+      </div>
     </div>
   );
 }
 
+    
 export default App;
