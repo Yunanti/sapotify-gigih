@@ -9,17 +9,13 @@ function App() {
     <div className="App">
       <div className='App-main'>
         <ImageAlbum url= {data.album.images[1].url}/>
-        
-        <div className='album-detail'>
-          <DetailAlbum 
-            nameSong={data.name} 
-            nameArtist={data.album.artists[0].name} 
-            releaseDate={data.album.release_date}
-            totalTrack={data.album.total_tracks}
-          />
-          <button className='btn text-white'>Select</button>
-
-        </div>
+        <DetailAlbum 
+          nameSong={data.name} 
+          nameArtist={data.album.artists[0].name} 
+          releaseDate={data.album.release_date}
+          totalTrack={data.album.total_tracks}
+          btnSelect={"Select"}
+        />
       </div>
     </div>
   );
