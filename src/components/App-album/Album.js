@@ -9,7 +9,8 @@ const Album = ({
   btnSelect,
 }) => {
   return (
-    <td>
+    
+    <tr>
       <div className="App-album">
         <div className="album-img">
           <img className="img-album" src={url} alt="queen" />
@@ -30,7 +31,7 @@ const Album = ({
           <button className="btn text-white">{btnSelect}</button>
         </div>
       </div>
-    </td>
+    </tr>
   );
 };
 

@@ -7,6 +7,40 @@
   padding: 0;
 }
 
+header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: black;
+}
+
+.grid {
+  padding: 0px 20px 0px 20px;
+  white-space: nowrap;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.tbl {
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.title {
+  margin-top: 20px;
+}
+
+.title-left {
+  text-align: left;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px rgba(1, 247, 1, 0.719) solid;
+}
+
 .btn {
   padding: 6px 15px;
   margin-top: 10px;
@@ -54,21 +88,24 @@ body {
 }
 
 .App-album {
-  border-radius: 35px;
+  border-radius: 15px;
   background-color: rgb(27, 23, 23);
-  margin: 5px 5px;
   width: 250px;
   height: 400px;
   padding: 0px;
   opacity: 75%;
+  margin: 25px 25px;
+  word-break: break-all;
+  white-space: normal;
 }
+
 .App-album:hover{
   opacity: 100%;
 }
 
 .img-album {
   width: 250px;
-  border-radius: 35px 35px 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 .text-white {
