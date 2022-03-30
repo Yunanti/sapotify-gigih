@@ -19,10 +19,11 @@ function App() {
   // console.log(fileList)
   return (
     <div className="App">
-      {/* <header>
+       <header>
         <h1 className="title text-white">Sapotify</h1>
         <h3 className="title title-left text-white">Track List</h3>
       </header>
+      {/*
       <div  className="tbl">
       <table>
         <tbody className="grid">
@@ -44,7 +45,7 @@ function App() {
         </tbody>
       </table>
       </div> */}
-      <Auth />
+      <div className="tbl"><Auth /></div>
     </div>
   );
 }
