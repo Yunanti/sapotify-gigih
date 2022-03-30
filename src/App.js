@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import Album from "./components/App-album/Album";
 import data2 from "./data/data2";
+import Auth from "./pages/auth/Auth";
 
 function App() {
   // const unique = Array.from(
@@ -18,7 +19,7 @@ function App() {
   // console.log(fileList)
   return (
     <div className="App">
-      <header>
+      {/* <header>
         <h1 className="title text-white">Sapotify</h1>
         <h3 className="title title-left text-white">Track List</h3>
       </header>
@@ -42,7 +43,8 @@ function App() {
         })}
         </tbody>
       </table>
-      </div>
+      </div> */}
+      <Auth />
     </div>
   );
 }

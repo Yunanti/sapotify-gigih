@@ -4,16 +4,17 @@ const Album = ({
   url,
   nameSong,
   nameArtist,
-  releaseDate,
-  totalTrack,
-  btnSelect,
+  // releaseDate,
+  // totalTrack,
+  // btnSelect,
+  alt,
 }) => {
   return (
     
     <tr>
       <div className="App-album">
         <div className="album-img">
-          <img className="img-album" src={url} alt="queen" />
+          <img className="img-album" src={url} alt={alt} />
         </div>
         <div className="album-detail">
           <h1 className="album-title text-white">{nameSong}</h1>
@@ -21,14 +22,14 @@ const Album = ({
             <p className="text-white">
               Artist : <span className="artist-name">{nameArtist}</span>
             </p>
-            <p className="text-white">
+            {/* <p className="text-white">
               Release Date : <span className="release-date">{releaseDate}</span>
             </p>
             <p className="text-white">
               Total Track : <span className="total-tracks">{totalTrack}</span>
-            </p>
+            </p> */}
           </div>
-          <button className="btn text-white">{btnSelect}</button>
+          <button className="btn text-white">Select</button>
         </div>
       </div>
     </tr>
