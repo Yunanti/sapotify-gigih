@@ -2,8 +2,9 @@ import React from "react";
 // import data1 from './data/data1';
 import "./App.css";
 import Album from "./components/App-album/Album";
-import data2 from "./data/data2";
-import Auth from "./pages/auth/Auth";
+// import data2 from "./data/data2";
+import AuthClass from "./pages/auth/AuthClass";
+import AuthHooks from "./pages/auth/AuthHooks";
 
 function App() {
   // const unique = Array.from(
@@ -21,7 +22,7 @@ function App() {
     <div className="App">
        <header>
         <h1 className="title text-white">Sapotify</h1>
-        <h3 className="title title-left text-white">Track List</h3>
+        
       </header>
       {/*
       <div  className="tbl">
@@ -45,7 +46,7 @@ function App() {
         </tbody>
       </table>
       </div> */}
-      <div className="tbl"><Auth /></div>
+      <div className="tbl"><AuthHooks /></div>
     </div>
   );
 }

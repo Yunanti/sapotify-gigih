@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../App.css";
 import Album from "../../components/App-album/Album";
 
-export default class Auth extends Component {
+export default class AuthClass extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,8 +73,13 @@ export default class Auth extends Component {
       .then((result) => this.setState({ searchResults: result.tracks.items }));
   }
 
+  logout() {
+    this.setState({ token: "" });
+    window.localStorage.removeItem("token");
+  }
+
   render() {
-    const { searchResults } = this.state;
+    const { searchResults, token } = this.state;
 
     const renderItem = () => {
       return (
@@ -108,25 +113,38 @@ export default class Auth extends Component {
 
     return (
       <>
-        <button className="btn login" onClick={() => this.redirectToSapotify()}>
-          Login
-        </button>
+        {token ? (
+          <button className="btn login" onClick={() => this.logout()}>
+            Logout
+          </button>
+        ) : (
+          <button
+            className="btn login"
+            onClick={() => this.redirectToSapotify()}
+          >
+            Login
+          </button>
+        )}
 
-        <form className="form-search" onSubmit={(e) => this.searchTrack(e)}>
-          <input
-            onChange={(e) => {
-              this.handleInput(e);
-            }}
-            type="text"
-            name="search"
-            placeholder="Search for a song"
-            value={this.state.searchKey}
-            className="form-input"
-          />
-          <input type="submit" value="Search" className="form-submit" />
-        </form>
+        {token && (
+          <>
+            <form className="form-search" onSubmit={(e) => this.searchTrack(e)}>
+              <input
+                onChange={(e) => {
+                  this.handleInput(e);
+                }}
+                type="text"
+                name="search"
+                placeholder="Search for a song"
+                value={this.state.searchKey}
+                className="form-input"
+              />
+              <input type="submit" value="Search" className="form-submit" />
+            </form>
 
-        <div className="grid">{renderItem()}</div>
+            <div className="grid">{renderItem()}</div>
+          </>
+        )}
       </>
     );
   }
