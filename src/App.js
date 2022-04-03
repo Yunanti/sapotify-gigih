@@ -1,10 +1,10 @@
 import React from "react";
 // import data1 from './data/data1';
 import "./App.css";
-import Album from "./components/App-album/Album";
+import FormCreatePlaylist from "./components/form-playlist/FormCreatePlaylist";
 // import data2 from "./data/data2";
-import AuthClass from "./pages/auth/AuthClass";
-import AuthHooks from "./pages/auth/AuthHooks";
+// import AuthClass from "./pages/auth/AuthClass";
+import Auth from "./pages/auth/Auth";
 
 function App() {
   // const unique = Array.from(
@@ -20,10 +20,10 @@ function App() {
   // console.log(fileList)
   return (
     <div className="App">
-       <header>
+      <header>
         <h1 className="title text-white">Sapotify</h1>
-        
       </header>
+    
       {/*
       <div  className="tbl">
       <table>
@@ -46,7 +46,9 @@ function App() {
         </tbody>
       </table>
       </div> */}
-      <div className="tbl"><AuthHooks /></div>
+      <div className="tbl">
+        <Auth />
+      </div>
     </div>
   );
 }

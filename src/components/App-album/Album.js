@@ -1,63 +1,60 @@
-import React, { useEffect, useState } from "react";
-// import AuthHooks from "../../pages/auth/AuthHooks";
+// import React, { useEffect, useState } from "react";
 
-const Album = ({ track }) => {
-  const [btnSelect, setBtnSelect] = useState(false);
+// // untuk local storage authhooks
 
-  const handleBtnSelect = () => {
-    setBtnSelect(!btnSelect);
-    let selected = JSON.parse(localStorage.getItem('data'));
-    if (btnSelect === false) {
-      selected[track.id] = track;
-    } else {
-      delete selected[track.id]
-    }
-    localStorage.setItem('data', JSON.stringify(selected))
-  };
+// const Album = ({ track }) => {
+//   const [btnSelect, setBtnSelect] = useState(false);
+//   let selected = JSON.parse(localStorage.getItem("data")); // untuk mengakses/mengambil data dalam lokal storage
 
-  console.log(track);
+//   const handleBtnSelect = () => {
+//     setBtnSelect(!btnSelect);
+//     // untuk menempatkan track ke my playlist saat button select dan menghapus track saat deselect
+//     if (btnSelect === false) {
+//       selected[track.id] = track;
+//     } else {
+//       delete selected[track.id];
+//     }
+//     localStorage.setItem("data", JSON.stringify(selected));
+//   };
 
-  useEffect(() => {
-    let selected = JSON.parse(localStorage.getItem('data'));
-    if (selected[track.id]) {
-      setBtnSelect(true);
-    } else {
-      setBtnSelect(false);
-    }
-  }, [track])
+//   // console.log(track);
 
-  return (
-    <table>
-      <tbody>
-        <tr>
-          <td>
-            <div className="App-album">
-              <div className="album-img">
-                <img className="img-album" src={track.album.images[0].url} alt={track.name} />
-              </div>
-              <div className="album-detail">
-                <h1 className="album-title text-white">{track.name}</h1>
-                <div className="artist-info">
-                  <p className="text-white">
-                    <span className="artist-name">{track.artists[0].name}</span>
-                  </p>
-                  {/* <p className="text-white">
-              Release Date : <span className="release-date">{releaseDate}</span>
-            </p>
-            <p className="text-white">
-              Total Track : <span className="total-tracks">{totalTrack}</span>
-            </p> */}
-                </div>
-                <button className="btn text-white" onClick={handleBtnSelect}>
-                  {btnSelect ? "Deselect" : "Select"}
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  );
-};
+//   useEffect(() => {
+//     if (selected[track.id]) {
+//       setBtnSelect(true);
+//     } else {
+//       setBtnSelect(false);
+//     }
+//   }, [track]);
 
-export default Album;
+//   return (
+//     <table>
+//       <tbody>
+//         <tr>
+//           <td>
+//             <div className="App-album">
+//               <div className="album-img">
+//                 <img
+//                   className="img-album"
+//                   src={track.album.images[0].url}
+//                   alt={track.name}
+//                 />
+//               </div>
+//               <div className="album-detail">
+//                 <h1 className="album-title text-white">{track.name}</h1>
+//                 <p className="text-white">
+//                   <span className="artist-name">{track.artists[0].name}</span>
+//                 </p>
+//                 <button className="btn text-white" onClick={handleBtnSelect}>
+//                   {btnSelect ? "Deselect" : "Select"}
+//                 </button>
+//               </div>
+//             </div>
+//           </td>
+//         </tr>
+//       </tbody>
+//     </table>
+//   );
+// };
+
+// export default Album;

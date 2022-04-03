@@ -19,3 +19,13 @@ Homework 6 Modul 2 Session 3 (25 Maret 2022)
 Creat a table dengan data yang telah ditentukan
 lalu loop data dan buat track components untuk setiap track listed
 -------------------------------------------------
+Homework 7 Modul 3 Session 1 (28 Maret 2022)
+Have a link that when clicked, it redirects to Spotify Auth API
+Buat search song functionalities
+-------------------------------------------------
+Homework 8 Modul 3 Session 2 (30 Maret 2022)
+Add feature to select and deselect songs
+-------------------------------------------------
+Homework 9 Modul 3 Session 3 (1 April 2022)
+Create a 'create playlist' form 
+When button clicked, create a new playlist
