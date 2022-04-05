@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { tokenAuth } from "../../redux/action";
 import Home from "../home/Home";
+// import HomeUpdate from "../home/HomeUpdate";
 
 // ini pakai state
 
 export default function Auth() {
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
   const [searchKey, setSearchKey] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+  // ini pakai redux
+  const { token } = useSelector((state) => state.token);
+  const dispatch = useDispatch();
 
   // fungsi untuk login spotify
   function redirectToSapotify() {
@@ -18,24 +25,42 @@ export default function Auth() {
     // return loginUrl;
   }
 
-  // untuk mengakses/mengambil token
+  // untuk mengakses/mengambil token dengan local storage
+  // useEffect(() => {
+  //   const hash = window.location.hash;
+  //   let token = window.localStorage.getItem("token");
+
+  //   if (!token && hash) {
+  //     token = hash
+  //       .substring(1)
+  //       .split("&")
+  //       .find((elem) => elem.startsWith("access_token"))
+  //       .split("=")[1];
+
+  //     window.location.hash = "";
+  //     window.localStorage.setItem("token", token);
+  //   }
+  //   // console.log(token);
+  //   // setToken(token);
+  //   dispatch(tokenAuth(token)); // dispatch token ke redux
+  // }, [token]);
+
+  // untuk akses/ambil token tanpa local storage
   useEffect(() => {
     const hash = window.location.hash;
-    let token = window.localStorage.getItem("token");
 
-    if (!token && hash) {
-      token = hash
+    if (hash) {
+      const token = hash
         .substring(1)
         .split("&")
         .find((elem) => elem.startsWith("access_token"))
         .split("=")[1];
 
       window.location.hash = "";
-      window.localStorage.setItem("token", token);
+      // console.log(token);
+      dispatch(tokenAuth(token)); // dispatch token ke redux
     }
-    // console.log(token);
-    setToken(token);
-  }, [token]);
+  });
 
   // fungsi untuk mengsetting button
   const handleInput = (e) => {
@@ -62,10 +87,11 @@ export default function Auth() {
 
   // fungsi untuk mengsetting button untuk logout
   function logout() {
-    setToken("");
+    // setToken("");
+    dispatch(tokenAuth(""));
     window.localStorage.removeItem("token");
   }
-  
+
   // console.log(searchResults);
   return (
     <>
@@ -83,11 +109,11 @@ export default function Auth() {
       {/* mengatur form search dan track list */}
       {token && (
         <Home
-            token={token}
-            onChange={handleInput}
-            onSubmit={searchTrack}
-            value={searchKey}
-            tracks={searchResults}
+          token={token}
+          onChange={handleInput}
+          onSubmit={searchTrack}
+          value={searchKey}
+          tracks={searchResults}
         />
       )}
     </>

@@ -1,10 +1,13 @@
 import React from "react";
+import { Provider } from "react-redux";
 // import data1 from './data/data1';
 import "./App.css";
 import FormCreatePlaylist from "./components/form-playlist/FormCreatePlaylist";
 // import data2 from "./data/data2";
 // import AuthClass from "./pages/auth/AuthClass";
 import Auth from "./pages/auth/Auth";
+import store from "./redux/store";
+
 
 function App() {
   // const unique = Array.from(
@@ -19,12 +22,13 @@ function App() {
 
   // console.log(fileList)
   return (
-    <div className="App">
-      <header>
-        <h1 className="title text-white">Sapotify</h1>
-      </header>
-    
-      {/*
+    <Provider store={store}>
+      <div className="App">
+        <header>
+          <h1 className="title text-white">Sapotify</h1>
+        </header>
+
+        {/*
       <div  className="tbl">
       <table>
         <tbody className="grid">
@@ -46,10 +50,11 @@ function App() {
         </tbody>
       </table>
       </div> */}
-      <div className="tbl">
-        <Auth />
+        <div className="tbl">
+          <Auth />
+        </div>
       </div>
-    </div>
+    </Provider>
   );
 }
 
