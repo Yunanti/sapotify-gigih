@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { tokenAuth } from "../../redux/action";
-import Home from "../home/Home";
+// import Home from "../home/Home";
 // import HomeUpdate from "../home/HomeUpdate";
 
 // !ini pakai state
 
-export default function Auth() {
-  // const [token, setToken] = useState("");
-  const [searchKey, setSearchKey] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-
+export default function AuthRouter() {
   // ini pakai redux
   const { token } = useSelector((state) => state.token);
   const dispatch = useDispatch();
@@ -62,30 +58,7 @@ export default function Auth() {
     }
   });
 
-  // fungsi untuk mengsetting button
-  const handleInput = (e) => {
-    setSearchKey(e.target.value);
-  };
-
-  // Calls Spotify Search API
-  const searchTrack = (e) => {
-    e.preventDefault();
-
-    fetch(
-      `https://api.spotify.com/v1/search?type=track&include_external=audio&q=${searchKey}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-type": "application/json",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((result) => setSearchResults(result.tracks.items));
-  };
-
-  // fungsi untuk mengsetting button untuk logout
+//    fungsi untuk mengsetting button untuk logout
   function logout() {
     // setToken("");
     dispatch(tokenAuth(""));
@@ -104,17 +77,6 @@ export default function Auth() {
         <button className="btn login" onClick={redirectToSapotify}>
           Login
         </button>
-      )}
-
-      {/* mengatur form search dan track list */}
-      {token && (
-        <Home
-          token={token}
-          onChange={handleInput}
-          onSubmit={searchTrack}
-          value={searchKey}
-          tracks={searchResults}
-        />
       )}
     </>
   );
