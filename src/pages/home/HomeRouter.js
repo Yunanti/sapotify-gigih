@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CardAlbum from "../../components/App-album/CardAlbum";
 import Search from "../../components/form-search/Search";
@@ -110,19 +110,19 @@ export default function HomeRouter() {
         console.log(data);
       });
 
-      await fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setTrackPlaylist(data.items);
-          console.log(data);
-        });
-      setSelected([]);
+    await fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setTrackPlaylist(data.items);
+        console.log(data);
+      });
+    setSelected([]);
   };
 
   //   handle click
@@ -169,51 +169,59 @@ export default function HomeRouter() {
 
   return (
     <>
-       <div className="form-playlist">
-        <h1 className="text-white">Create Playlist</h1>
-        <p className="text-white">Name: {user.display_name}</p>
+      <div className="form-title">
+        {/* <h2 className="text-white">Create Playlist</h2> */}
+        <h2 className="text-white">Hello {user.display_name}!</h2>
         <p className="text-white">ID: {user.id}</p>
+        <p className="text-white">
+          Want to create a playlist? Give your playlist a title and description.
+        </p>
       </div>
 
       <div className="form-playlist">
         <form onSubmit={createPlaylist}>
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            value={playlist.title}
-            onChange={handlePlaylist}
-            maxLength="10" //maksimal 10 karakter
-          />
-          <textarea
-            type="text"
-            name="description"
-            placeholder="Description"
-            value={playlist.description}
-            onChange={handlePlaylist}
-          />
+          <div className="form-group">
+            <label className="text-white">Title<br></br></label>
+            <input
+              type="text"
+              name="title"
+              placeholder="write a title"
+              value={playlist.title}
+              onChange={handlePlaylist}
+              maxLength="10" //maksimal 10 karakter
+            />
+          </div>
+          <div className="form-group">
+            <label className="text-white">Description<br></br></label>
+            <textarea
+              type="text"
+              name="description"
+              placeholder="write a escription"
+              value={playlist.description}
+              onChange={handlePlaylist}
+            />
+          </div>
           <input type="submit" value="Create Playlist" className="btn" />
         </form>
       </div>
 
-      <div className="form-playlist">
-        <h1 className="text-white">{playlist.name} Playlist</h1>
+      <div className="form-tracks">
+        <h3 className="title-left text-white">{playlist.name} Playlist</h3>
         <p className="text-white">{playlist.description}</p>
         <div className="grid">
-        {trackPlaylist.map((item) => (
-          <React.Fragment key={item.track.id}>
-            <CardAlbum
-              image={item.track.album.images[0].url}
-              title={item.track.name}
-              artist={item.track.artists[0].name}
-            >
-              Play
-            </CardAlbum>
-          </React.Fragment>
-        ))}
+          {trackPlaylist.map((item) => (
+            <React.Fragment key={item.track.id}>
+              <CardAlbum
+                image={item.track.album.images[0].url}
+                title={item.track.name}
+                artist={item.track.artists[0].name}
+              >
+                Play
+              </CardAlbum>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
-      </div>
-
 
       <Search onSubmit={searchTrack} onChange={handleInput} value={searchKey} />
 
@@ -232,8 +240,9 @@ export default function HomeRouter() {
           </React.Fragment>
         ))}
       </div>
-      {selected.length === 0 ? null :
-      (<button onClick={addTrack}>Save to Playlist</button>)}
+      {selected.length === 0 ? null : (
+        <button className="btn" onClick={addTrack}>Save to Playlist</button>
+      )}
 
       <h3 className="title-left text-white">Track List</h3>
       <div className="grid">{itemList()}</div>

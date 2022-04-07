@@ -151,9 +151,23 @@ img {
   color: white;
 } 
 
-.form-playlist {
+.form-title {
   margin-top: 60px;
 }
+
+
+.form-playlist{
+  display: block;
+  /* text-align: left; */
+  width: 100%;
+  margin: 20px 0px 20px 0px;
+  border: ;
+}
+
+.form-tracks {
+  margin-bottom: 40px;
+}
+
 
 
 @keyframes App-logo-spin {
