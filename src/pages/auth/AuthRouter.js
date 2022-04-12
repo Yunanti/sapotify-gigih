@@ -65,7 +65,6 @@ export default function AuthRouter() {
     window.localStorage.removeItem("token");
   }
 
-  // console.log(searchResults);
   return (
     <>
       {/* mengatur tampilan agar terdapat login dan logout */}

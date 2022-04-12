@@ -45,6 +45,8 @@ export default function HomeRouter() {
       .then((response) => response.json())
       .then((result) => setSearchResults(result.tracks.items));
   };
+  
+  // console.log(searchResults);
 
   // menampilkan akun
   const [input, setInput] = useState({
@@ -154,6 +156,7 @@ export default function HomeRouter() {
           image={track.album.images[0].url}
           title={track.name}
           artist={track.artists[0].name}
+          nama={track.album.name}
         >
           {track.isSelected ? "Deselect" : "Select"}
         </CardAlbum>
@@ -166,6 +169,8 @@ export default function HomeRouter() {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
+
+  
 
   return (
     <>
@@ -211,10 +216,12 @@ export default function HomeRouter() {
         <div className="grid">
           {trackPlaylist.map((item) => (
             <React.Fragment key={item.track.id}>
+              {/* {console.log("ini item"+item)} */}
               <CardAlbum
                 image={item.track.album.images[0].url}
                 title={item.track.name}
                 artist={item.track.artists[0].name}
+                nama={item.track.album.name}
               >
                 Play
               </CardAlbum>
@@ -229,11 +236,13 @@ export default function HomeRouter() {
       <div className="grid">
         {selected.map((track) => (
           <React.Fragment key={track.id}>
+            {/* {console.log(track.album.name)} */}
             <CardAlbum
               onClick={() => handleClick(track)} // () => perlu di klik terlebih dahulu baru running
               image={track.album.images[0].url}
               title={track.name}
               artist={track.artists[0].name}
+              nama={track.album.name}
             >
               Deselect
             </CardAlbum>

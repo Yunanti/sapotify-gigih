@@ -17,12 +17,13 @@ header {
 }
 
 .grid {
-  padding: 0px 120px 0px 120px;
+  padding: 0px 20px 0px 20px;
+  display: grid;
+  flex-direction: row;
   white-space: nowrap;
   margin: 0 auto;
   text-align: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .tbl {
@@ -109,30 +110,38 @@ body {
 
 .album-title {
   font-size: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
-.artist-name {
-  font-size: 12px;
+.album-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 10px;
+  padding-top: 10px;
+  color: white;
+  text-align: start;
+  justify-content: space-around;
 }
 
-.album-detail h1 {
-  height: 60px;
+.album-button {
+  margin-bottom: 10px;
 }
 
 .App-album {
-  border-radius: 15px;
+  /* border-radius: 15px; */
   background-color: rgb(14, 14, 14);
-  width: 100%;
-  height: 385px;
+  width: 400px;
+  height: 150px;
   padding: 0px;
   opacity: 75%;
-  margin: 0 auto;
+  margin: 10px;
   word-break: break-all;
   white-space: normal;
   box-shadow: 0 0 10px rgba(1, 247, 1, 0.3);
   border: 1px rgba(1, 247, 1, 0.3) solid;
+  display: flex;
+  justify-content: flex-start;
+
 }
 
 .App-album:hover{
@@ -140,8 +149,8 @@ body {
 }
 
 .img-album {
-  width: 230px;
-  border-radius: 15px 15px 0 0;
+  height: 130px;
+  /* border-radius: 15px 15px 0 0; */
 }
 img {
   margin: 10px;
