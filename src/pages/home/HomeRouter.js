@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import CardAlbum from "../../components/App-album/CardAlbum";
-import Search from "../../components/form-search/Search";
-// import { tokenAuth } from "../../redux/action";
-// import Playlist from "../playlist/Playlist";
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import CardAlbum from '../../components/App-album/CardAlbum';
+import Search from '../../components/form-search/Search';
 
 export default function HomeRouter() {
-  const [searchKey, setSearchKey] = useState("");
+  const [searchKey, setSearchKey] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [selected, setSelected] = useState([]);
   const [combine, setCombine] = useState([]);
 
   const { token } = useSelector((state) => state.token);
-  // const dispatch = useDispatch();
 
   // state untuk menampilkan akun
   const [user, setUser] = useState([]);
@@ -35,33 +32,33 @@ export default function HomeRouter() {
     fetch(
       `https://api.spotify.com/v1/search?type=track&include_external=audio&q=${searchKey}`,
       {
-        method: "GET",
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
         },
       }
     )
       .then((response) => response.json())
       .then((result) => setSearchResults(result.tracks.items));
   };
-  
+
   // console.log(searchResults);
 
   // menampilkan akun
   const [input, setInput] = useState({
-    title: "",
-    description: "",
+    title: '',
+    description: '',
   });
 
   // console.log(token);
   useEffect(() => {
     const getUser = async () => {
-      const response = await fetch("https://api.spotify.com/v1/me", {
-        method: "GET",
+      const response = await fetch('https://api.spotify.com/v1/me', {
+        method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-type": "application/json",
+          'Content-type': 'application/json',
         },
       })
         .then((res) => res.json())
@@ -75,10 +72,10 @@ export default function HomeRouter() {
   const createPlaylist = (e) => {
     e.preventDefault();
     fetch(`https://api.spotify.com/v1/users/${user.id}/playlists`, {
-      method: "POST",
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       },
       body: JSON.stringify({
         name: input.title,
@@ -98,10 +95,10 @@ export default function HomeRouter() {
     e.preventDefault();
     const selectedTrack = selected.map((item) => item.uri);
     await fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
-      method: "POST",
+      method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       },
       body: JSON.stringify({
         uris: selectedTrack,
@@ -113,10 +110,10 @@ export default function HomeRouter() {
       });
 
     await fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
-      method: "GET",
+      method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       },
     })
       .then((res) => res.json())
@@ -158,7 +155,7 @@ export default function HomeRouter() {
           artist={track.artists[0].name}
           nama={track.album.name}
         >
-          {track.isSelected ? "Deselect" : "Select"}
+          {track.isSelected ? 'Deselect' : 'Select'}
         </CardAlbum>
       </React.Fragment>
     ));
@@ -169,8 +166,6 @@ export default function HomeRouter() {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
-
-  
 
   return (
     <>
@@ -186,7 +181,9 @@ export default function HomeRouter() {
       <div className="form-playlist">
         <form onSubmit={createPlaylist}>
           <div className="form-group">
-            <label className="text-white">Title<br></br></label>
+            <label className="text-white">
+              Title<br></br>
+            </label>
             <input
               type="text"
               name="title"
@@ -197,7 +194,9 @@ export default function HomeRouter() {
             />
           </div>
           <div className="form-group">
-            <label className="text-white">Description<br></br></label>
+            <label className="text-white">
+              Description<br></br>
+            </label>
             <textarea
               type="text"
               name="description"
@@ -249,8 +248,11 @@ export default function HomeRouter() {
           </React.Fragment>
         ))}
       </div>
+
       {selected.length === 0 ? null : (
-        <button className="btn" onClick={addTrack}>Save to Playlist</button>
+        <button className="btn" onClick={addTrack}>
+          Save to Playlist
+        </button>
       )}
 
       <h3 className="title-left text-white">Track List</h3>

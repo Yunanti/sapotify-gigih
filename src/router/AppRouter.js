@@ -1,18 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-// import "./App.css";
-import { useSelector } from "react-redux";
-import AuthRouter from "../pages/auth/AuthRouter";
-import HomeRouter from "../pages/home/HomeRouter";
-// import store from "../redux/store";
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import AuthRouter from '../pages/auth/AuthRouter';
+import HomeRouter from '../pages/home/HomeRouter';
 
 function AppRouter() {
   const { token } = useSelector((state) => state.token);
   return (
     <div className="App">
-      <header>
-        <h1 className="title text-white">Sapotify</h1>
-      </header>
+      <AuthRouter />
       <Router>
         <Switch>
           <Route path="/create-playlist">
@@ -23,12 +24,18 @@ function AppRouter() {
               {token ? (
                 <Redirect exact from="/" to="/create-playlist" />
               ) : (
-                <AuthRouter />
+                <div className="text-white">
+                  <h2>Hello!</h2>
+                  <p>Please login first</p>
+                </div>
               )}
             </div>
           </Route>
         </Switch>
       </Router>
+      <footer>
+        <p className="text-white">Copyright 2022 by Yunanti Moga Hasanah</p>
+      </footer>
     </div>
   );
 }

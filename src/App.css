@@ -13,11 +13,23 @@ header {
   top: 0;
   z-index: 10;
   width: 100%;
-  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(0, 49, 0);
+  padding-bottom: 5px;
+  padding-left: 60px;
+  padding-right: 60px;
+  width: 91%;
+}
+
+footer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .grid {
-  padding: 0px 20px 0px 20px;
+  padding: 0px 0px 0px 0px;
   display: grid;
   flex-direction: row;
   white-space: nowrap;
@@ -56,7 +68,22 @@ header {
 }
 
 .login {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 80%;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+  border-left: 1px rgba(107, 239, 107, 0.45) solid;
+  background-color: rgb(0, 49, 0);
+  color: white;
+}
+
+.login:hover{
+  background-color:  rgba(4, 36, 4, 0.922);
+  border: 0px;
 }
 
 .form-input {
@@ -134,7 +161,7 @@ body {
   height: 150px;
   padding: 0px;
   opacity: 75%;
-  margin: 10px;
+  margin: 5px;
   word-break: break-all;
   white-space: normal;
   box-shadow: 0 0 10px rgba(1, 247, 1, 0.3);
