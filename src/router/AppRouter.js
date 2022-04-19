@@ -34,7 +34,7 @@ function AppRouter() {
         </Switch>
       </Router>
       <footer>
-        <p className="text-white">Copyright 2022 by Yunanti Moga Hasanah</p>
+        <p className="footer-p">Copyright 2022 by Yunanti Moga Hasanah</p>
       </footer>
     </div>
   );
