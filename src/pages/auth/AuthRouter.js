@@ -13,7 +13,7 @@ export default function AuthRouter() {
   function redirectToSapotify() {
     const client_id = '1978717e3d6541e791a061c40ba1124c';
     const scopes = 'playlist-modify-private';
-    const redirect_uri = 'http://localhost:3000/';
+    const redirect_uri = 'https://sapotify-gigih.vercel.app/';
     const loginUrl = `https://accounts.spotify.com/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scopes}&response_type=token&show_dialog=true`;
     window.location = loginUrl;
     // return loginUrl;
