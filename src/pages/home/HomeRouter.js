@@ -86,7 +86,7 @@ export default function HomeRouter() {
       .then((res) => res.json())
       .then((data) => {
         setPlaylist(data);
-        console.log(data);
+        // console.log(data);
       });
   };
 
@@ -106,7 +106,7 @@ export default function HomeRouter() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
       });
 
     await fetch(`https://api.spotify.com/v1/playlists/${playlist.id}/tracks`, {
@@ -119,7 +119,7 @@ export default function HomeRouter() {
       .then((res) => res.json())
       .then((data) => {
         setTrackPlaylist(data.items);
-        console.log(data);
+        // console.log(data);
       });
     setSelected([]);
   };
