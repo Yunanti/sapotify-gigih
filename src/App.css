@@ -15,7 +15,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(0, 49, 0);
+  background-color: #212121;
   padding-bottom: 5px;
   padding-left: 60px;
   padding-right: 60px;
@@ -56,14 +56,14 @@ footer {
   padding-bottom: 5px;
   padding-left: 20px;
   margin-bottom: 10px;
-  border-bottom: 1px rgba(1, 247, 1, 0.3) solid;
+  border-bottom: 1px #212121 solid;
 }
 
 .btn {
   padding: 6px 15px;
   margin-top: 10px;
-  background-color: rgba(1, 247, 1, 0.719);
-  border-radius: 15px;
+  background-color: #0288d1;
+  border-radius: 3px;
   border: 0px;
 }
 
@@ -76,13 +76,13 @@ footer {
   border-top: 0px;
   border-bottom: 0px;
   border-right: 0px;
-  border-left: 1px rgba(107, 239, 107, 0.45) solid;
-  background-color: rgb(0, 49, 0);
+  border-left: 1px #323232 solid;
+  background-color: #212121;
   color: white;
 }
 
-.login:hover{
-  background-color:  rgba(4, 36, 4, 0.922);
+.login:hover {
+  background-color: #323232;
   border: 0px;
 }
 
@@ -97,7 +97,7 @@ footer {
 }
 
 .form-submit {
-  background-color: rgba(1, 247, 1, 0.9);
+  background-color: #0288d1;
   width: 50px;
   height: 25px;
   border-top-right-radius: 15px;
@@ -132,7 +132,7 @@ footer {
 }
 
 body {
-  background-color: black;
+  background-color: #323232;
 }
 
 .album-title {
@@ -164,14 +164,13 @@ body {
   margin: 5px;
   word-break: break-all;
   white-space: normal;
-  box-shadow: 0 0 10px rgba(1, 247, 1, 0.3);
-  border: 1px rgba(1, 247, 1, 0.3) solid;
+  box-shadow: 0 0 10px #111111;
+  border: 1px #0288d1 solid;
   display: flex;
   justify-content: flex-start;
-
 }
 
-.App-album:hover{
+.App-album:hover {
   opacity: 100%;
 }
 
@@ -185,14 +184,13 @@ img {
 
 .text-white {
   color: white;
-} 
+}
 
 .form-title {
   margin-top: 60px;
 }
 
-
-.form-playlist{
+.form-playlist {
   display: block;
   /* text-align: left; */
   width: 100%;
@@ -202,8 +200,6 @@ img {
 .form-tracks {
   margin-bottom: 40px;
 }
-
-
 
 @keyframes App-logo-spin {
   from {

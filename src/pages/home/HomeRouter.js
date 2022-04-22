@@ -190,7 +190,7 @@ export default function HomeRouter() {
               placeholder="write a title"
               value={playlist.title}
               onChange={handlePlaylist}
-              maxLength="10" //maksimal 10 karakter
+              minLength="10" //manimal 10 karakter
             />
           </div>
           <div className="form-group">
@@ -205,7 +205,11 @@ export default function HomeRouter() {
               onChange={handlePlaylist}
             />
           </div>
-          <input type="submit" value="Create Playlist" className="btn" />
+          <input
+            type="submit"
+            value="Create Playlist"
+            className="btn text-white"
+          />
         </form>
       </div>
 
